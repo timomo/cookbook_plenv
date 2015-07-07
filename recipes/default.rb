@@ -49,15 +49,6 @@ yum_package "gcc" do
   action :upgrade
 end
 
-# see also: http://easyramble.com/chef-execute-source-error.html
-bash "install cpanm" do
-  code <<-_EOH_
-    source /etc/profile.d/plenv.sh
-    plenv install-cpanm
-  _EOH_
-  not_if { File.exist?("/opt/plenv/shims/cpanm") }
-end
-
 # install perl 5.10.1
 bash "install perl" do
   code <<-_EOH_
@@ -66,4 +57,13 @@ bash "install perl" do
     plenv global 5.10.1
   _EOH_
   not_if { File.exist?("/opt/plenv/shims/perl") }
+end
+
+# see also: http://easyramble.com/chef-execute-source-error.html
+bash "install cpanm" do
+  code <<-_EOH_
+    source /etc/profile.d/plenv.sh
+    plenv install-cpanm
+  _EOH_
+  not_if { File.exist?("/opt/plenv/shims/cpanm") }
 end
