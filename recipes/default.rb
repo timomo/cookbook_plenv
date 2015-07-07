@@ -37,15 +37,15 @@ template "/etc/profile.d/plenv.sh" do
   mode "0644"
 end
 
-yum_package "perl-ExtUtils-MakeMaker.x86_64" do
+yum_package "perl-ExtUtils-MakeMaker" do
   action :upgrade
 end
 
-yum_package "patch.x86_64" do
+yum_package "patch" do
   action :upgrade
 end
 
-yum_package "gcc.x86_64" do
+yum_package "gcc" do
   action :upgrade
 end
 
