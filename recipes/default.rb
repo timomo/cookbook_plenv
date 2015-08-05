@@ -49,6 +49,10 @@ yum_package "gcc" do
   action :upgrade
 end
 
+yum_package "bzip2" do
+  action :upgrade
+end
+
 # install perl 5.10.1
 bash "install perl" do
   code <<-_EOH_
